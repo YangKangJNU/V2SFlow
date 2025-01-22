@@ -1,0 +1,7 @@
+num_layer: 6
+attention_dim: 512
+attention_head: 4
+kernel_size: 31
+feedforward_dim: 2048
+dropout_rate: 0.1
+spk_emb_dim: 256

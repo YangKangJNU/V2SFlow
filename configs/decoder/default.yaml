@@ -1,0 +1,3 @@
+defaults:
+ - _self_
+ - dit: dit.yaml

@@ -1,0 +1,13 @@
+dim: 256
+depth: 8
+heads: 8
+dim_head: 64
+dropout: 0.1
+ff_mult: 4
+mel_dim: 160
+content_nums: 200
+content_dim: 256
+pitch_nums: 40
+pitch_dim: 256
+spk_dim: 256
+long_skip_connection: False
