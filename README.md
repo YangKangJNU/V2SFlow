@@ -14,3 +14,4 @@ python train_decoder.py
 ```
 
 ## Reference Repository
+[speech-resynthesis](https://github.com/facebookresearch/speech-resynthesis) | [F5-TTS](https://github.com/SWivid/F5-TTS)
