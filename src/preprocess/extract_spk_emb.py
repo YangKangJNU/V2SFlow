@@ -26,13 +26,16 @@ def get_filelist(dirpath):
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument('--root', type=str, default='data/LJSpeech-1.1')
+    parser.add_argument('--root', type=str, default='')
+    parser.add_argument('--model_weight', type=str, default='')
     args = parser.parse_args()
     filelist = get_filelist(args.root)
-    model = SpeakerEncoder('cuda', 'cuda')
+    model = SpeakerEncoder('cuda', torch.device('cpu'))
+    ckpt = torch.load(args.model_weight)
+    model.load_state_dict(ckpt['model_state'])
+    model.eval()
     for file in tqdm(filelist):
         get_emb(file, model)
-
 
 
 
