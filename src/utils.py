@@ -99,3 +99,13 @@ def plot_spectrogram(spectrogram):
     fig.canvas.draw()
     plt.close()
     return fig
+
+# SMN-logf0 from PFlow-VC
+def SMN_logF0(f0):
+    ii = f0 == 0
+    logf0 = np.log(f0 + 1e-5)
+    E = np.sum(logf0[~ii]) / np.sum(~ii)
+    smn_logf0 = logf0 - E
+    smn_logf0[ii] = 0
+    return smn_logf0
+    

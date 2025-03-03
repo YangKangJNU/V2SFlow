@@ -62,14 +62,14 @@ class LRS3Dataset(Dataset):
         hubert_unit = torch.tensor(self.hubert_unit_dict[f_name]) + 1
         pitch_unit = torch.tensor(self.pitch_unit_dict[f_name]) + 1
 
-        diff = feat.size(0) - len(hubert_unit)
+        diff = len(hubert_unit) - feat.size(1)*2
         if diff < 0:
             padding = torch.zeros(-diff, dtype=hubert_unit.dtype)
             hubert_unit = torch.cat((hubert_unit, padding))
         elif diff > 0:
             hubert_unit = hubert_unit[:-diff]
 
-        diff = feat.size(0) - len(pitch_unit)
+        diff = len(pitch_unit) - feat.size(1)*2
         if diff < 0:
             padding = torch.zeros(-diff, dtype=pitch_unit.dtype)
             pitch_unit = torch.cat((pitch_unit, padding))
